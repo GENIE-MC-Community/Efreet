@@ -32,12 +32,12 @@ applications, you should add them to the Dockerfile and build a new image), but
 you may also pull an image from
 [DockerHub](https://hub.docker.com/r/gnperdue/genie/).
 
-    $ docker pull gnperdue/genie:2.10.6
+    $ docker pull gnperdue/genie:2.10.10
 
 It will take a few minutes to download the image. Once it has downloaded, run
 it with:
 
-    $ docker run -t -i gnperdue/genie:2.10.6 /bin/bash
+    $ docker run -t -i gnperdue/genie:2.10.10 /bin/bash
 
 This will provide a linux prompt. Go to 
 
@@ -56,7 +56,7 @@ If you run GENIE in this way, you will lose all of your changes and new files
 when you `exit`. In order to persist your files, it is a good idea to run with
 a local mount:
 
-    $ docker run -t -i -v $PWD:/root/mygeniefiles gnperdue/genie:2.10.6 /bin/bash
+    $ docker run -t -i -v $PWD:/root/mygeniefiles gnperdue/genie:2.10.10 /bin/bash
 
 Now `/root/mygeniefiles` inside the container will hold the contents of `$PWD` and
 if you move a file you produce with GENIE to `/root/mygeniefiles` it will persist
