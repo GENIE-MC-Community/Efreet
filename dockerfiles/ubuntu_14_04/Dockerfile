@@ -26,8 +26,8 @@ RUN apt-get update && apt-get install -y \
 # RUN ln -snf /bin/bash /bin/sh
 # Clone lamp and install
 RUN cd /root && git clone https://github.com/GENIEMC/lamp.git && \
-  cd lamp && git checkout -b R-2_10_10.0-br R-2_10_10.0 && \
-  ./rub_the_lamp.sh -s --root v5-34-30 --no-roomu
+  cd lamp && git checkout -b R-2_11_0.0-br R-2_11_0.0 && \
+  ./rub_the_lamp.sh -s --no-roomu
 
 # Cleanup
 RUN apt-get clean autoclean
