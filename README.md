@@ -82,14 +82,16 @@ Example of how to update for a new version of GENIE:
     $ . start-docker-osx.sh
     // go to Dockerfile location, here for Ubuntu
     $ cd dockerfiles/ubuntu_14_04/
+    // see what we got
+    $ docker images
+    // get rid of old "latest" and tagged stuff
+    // use correct hash from `docker images`
+    $ docker rmi -f 0df6c
     // build with a tag (Dockerfile is local)
-    $ docker build -t gnperdue/genie:2.11.0 .
+    $ docker build -t gnperdue/genie:2.12.0 .
     ...
     // see what we got
     $ docker images
-    $ docker push gnperdue/genie:2.11.0
-    // get rid of old "latest" and rebuild
-    // use correct hash from `docker images`
-    $ docker rmi -f 42a44
+    $ docker push gnperdue/genie:2.12.0
     $ docker build -t gnperdue/genie:latest .
     $ docker push gnperdue/genie:latest
