@@ -32,12 +32,12 @@ applications, you should add them to the Dockerfile and build a new image), but
 you may also pull an image from
 [DockerHub](https://hub.docker.com/r/gnperdue/genie/).
 
-    $ docker pull gnperdue/genie:2.10.10
+    $ docker pull gnperdue/genie:2.12.2
 
 It will take a few minutes to download the image. Once it has downloaded, run
 it with:
 
-    $ docker run -t -i gnperdue/genie:2.10.10 /bin/bash
+    $ docker run -t -i gnperdue/genie:2.12.2 /bin/bash
 
 This will provide a linux prompt. Go to 
 
@@ -52,11 +52,14 @@ In the `/root/lamp/genie_runs` directory you can find scripts for running GENIE
 (not required) and in `/root/lamp/data/gxspl-small.xml` you have a small, starter
 cross section file.
 
+Note: if you don't have a cross section file in `/root/lamp/data`, you will
+need to generate your own.
+
 If you run GENIE in this way, you will lose all of your changes and new files
 when you `exit`. In order to persist your files, it is a good idea to run with
 a local mount:
 
-    $ docker run -t -i -v $PWD:/root/mygeniefiles gnperdue/genie:2.10.10 /bin/bash
+    $ docker run -t -i -v $PWD:/root/mygeniefiles gnperdue/genie:2.12.2 /bin/bash
 
 Now `/root/mygeniefiles` inside the container will hold the contents of `$PWD` and
 if you move a file you produce with GENIE to `/root/mygeniefiles` it will persist
@@ -88,10 +91,10 @@ Example of how to update for a new version of GENIE:
     // use correct hash from `docker images`
     $ docker rmi -f 0df6c
     // build with a tag (Dockerfile is local)
-    $ docker build -t gnperdue/genie:2.12.0 .
+    $ docker build -t gnperdue/genie:2.12.2 .
     ...
     // see what we got
     $ docker images
-    $ docker push gnperdue/genie:2.12.0
+    $ docker push gnperdue/genie:2.12.2
     $ docker build -t gnperdue/genie:latest .
     $ docker push gnperdue/genie:latest
