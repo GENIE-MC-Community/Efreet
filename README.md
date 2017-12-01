@@ -32,12 +32,12 @@ applications, you should add them to the Dockerfile and build a new image), but
 you may also pull an image from
 [DockerHub](https://hub.docker.com/r/gnperdue/genie/).
 
-    $ docker pull gnperdue/genie:2.12.6
+    $ docker pull gnperdue/genie:2.12.8
 
 It will take a few minutes to download the image. Once it has downloaded, run
 it with:
 
-    $ docker run -t -i gnperdue/genie:2.12.6 /bin/bash
+    $ docker run -t -i gnperdue/genie:2.12.8 /bin/bash
 
 This will provide a linux prompt. Go to 
 
@@ -59,7 +59,7 @@ If you run GENIE in this way, you will lose all of your changes and new files
 when you `exit`. In order to persist your files, it is a good idea to run with
 a local mount:
 
-    $ docker run -t -i -v $PWD:/root/mygeniefiles gnperdue/genie:2.12.6 /bin/bash
+    $ docker run -t -i -v $PWD:/root/mygeniefiles gnperdue/genie:2.12.8 /bin/bash
 
 Now `/root/mygeniefiles` inside the container will hold the contents of `$PWD` and
 if you move a file you produce with GENIE to `/root/mygeniefiles` it will persist
@@ -78,10 +78,11 @@ script included here, issue the command:
 Not tested! But this should, _in principle_ be the easiest way to run GENIE
 "natively" on a Windows machine.
 
-## Notes to self...
+## Build a new image
 
 Example of how to update for a new version of GENIE:
 
+    // if needed, start Docker
     $ . start-docker-osx.sh
     // go to Dockerfile location, here for Ubuntu
     $ cd dockerfiles/ubuntu_14_04/
@@ -91,10 +92,10 @@ Example of how to update for a new version of GENIE:
     // use correct hash from `docker images`
     $ docker rmi -f 0df6c
     // build with a tag (Dockerfile is local)
-    $ docker build -t gnperdue/genie:2.12.6 .
+    $ docker build -t gnperdue/genie:2.12.8 .
     ...
     // see what we got
     $ docker images
-    $ docker push gnperdue/genie:2.12.6
+    $ docker push gnperdue/genie:2.12.8
     $ docker build -t gnperdue/genie:latest .
     $ docker push gnperdue/genie:latest
